@@ -184,7 +184,7 @@ function App() {
             We handle the details while you focus on growth.
           </p>
           <motion.a
-            href={`https://wa.me/0595703977`}
+            href={`https://wa.me/+233595703977`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-4 bg-blue-600 text-white rounded-full text-lg font-semibold hover:bg-blue-700 transition-colors duration-300"
