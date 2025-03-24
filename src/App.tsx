@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ClipboardCheck, Mail, Presentation, MessageSquare, FileSpreadsheet, Calendar, ArrowRight, Menu, X, ChevronUp, Gift, Star } from 'lucide-react';
+import logo1 from './assets/br20.jpeg'; 
+import logo2 from './assets/sic.webp';
+
+
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -89,13 +93,13 @@ function App() {
   const testimonials = [
     {
       clientName: "Mr.Evans Asimah (CEO Of BR20)",
-      clientLogo: "https://drive.google.com/uc?export=view&id=1cxUDHArMLi-SPOe0X3XiAoK_Ocglnhmc",
+      clientLogo: logo1,
       testimonial: "VirtualTech transformed our workflow with their innovative automation solutions. Their team is professional and dedicated.",
       rating: 5
     },
     {
       clientName: "Mr.Gershon Ako (Internal Auditor SIC Life Insurance)",
-      clientLogo: "https://drive.google.com/uc?export=view&id=1Ia4lR9MY2OwUgyffE4Q3PPa_Bd6YGz_W", 
+      clientLogo: logo2, 
       testimonial: "Their presentation design and data analysis services exceeded our expectations. Highly recommended!",
       rating: 4
     }
