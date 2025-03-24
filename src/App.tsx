@@ -4,8 +4,6 @@ import { ClipboardCheck, Mail, Presentation, MessageSquare, FileSpreadsheet, Cal
 import logo1 from './assets/br20.jpeg'; 
 import logo2 from './assets/sic.webp';
 
-
-
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -41,22 +39,22 @@ function App() {
     {
       icon: <ClipboardCheck className="w-12 h-12 text-blue-600" />,
       title: "Data Entry",
-      description: "Fast & accurate data handling with administrative assistance"
+      description: "Accurate and secure data entry using automation and AI-driven verification for error-free, scalable solutions."
     },
     {
       icon: <Presentation className="w-12 h-12 text-blue-600" />,
       title: "Presentation Design",
-      description: "Professional slides & business decks that make an impact"
+      description: "Professional, interactive slides and business decks that combine industry aesthetics with modern data visualization."
     },
     {
       icon: <Mail className="w-12 h-12 text-blue-600" />,
       title: "Email Support",
-      description: "Efficient inbox management & client communication"
+      description: "Efficient inbox management with AI-powered tools and CRM integration to streamline client communications."
     },
     {
       icon: <FileSpreadsheet className="w-12 h-12 text-blue-600" />,
       title: "Data Analysis",
-      description: "Professional analysis using Excel and Tableau"
+      description: "Robust analysis using Excel and Tableau enhanced with predictive analytics and real-time reporting for actionable insights."
     }
   ];
 
@@ -114,6 +112,26 @@ function App() {
     { id: 'blog', label: 'Blog' },
     { id: 'why-choose-us', label: 'Why Us' },
     { id: 'contact', label: 'Contact' },
+  ];
+
+  // Elaborated process steps with industrial standards and trends
+  const processSteps = [
+    {
+      title: "Discovery & Consultation",
+      description: "We begin with a comprehensive analysis of your business requirements, leveraging industry best practices and market research to ensure our strategies align with current trends and your unique needs."
+    },
+    {
+      title: "Strategy & Planning",
+      description: "Our planning phase integrates data-driven insights and modern methodologies to craft agile strategies that meet industry benchmarks while adapting to evolving market conditions."
+    },
+    {
+      title: "Implementation & Testing",
+      description: "Using agile methodologies and cutting-edge technologies, we implement solutions with precision. Rigorous testing ensures that our deliverables meet high-quality standards and are in tune with current industry trends."
+    },
+    {
+      title: "Deployment & Support",
+      description: "We ensure seamless deployment followed by continuous support. Our ongoing monitoring and iterative improvement process guarantee that your solution remains robust, scalable, and updated with industry trends."
+    }
   ];
 
   return (
@@ -358,7 +376,7 @@ function App() {
         </div>
       </section>
 
-      {/* Process Section */}
+      {/* Process Section with Elaborated Steps */}
       <section id="process" className="py-20 px-4 bg-gray-100">
         <div className="max-w-6xl mx-auto">
           <motion.h2
@@ -370,12 +388,7 @@ function App() {
             Our Process
           </motion.h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              "Discovery & Consultation: We dive deep into your business requirements.",
-              "Strategy & Planning: Tailored solutions are mapped out to meet your goals.",
-              "Implementation & Testing: We bring ideas to life with precision and care.",
-              "Deployment & Support: Your success is our priority, with ongoing assistance."
-            ].map((step, index) => (
+            {processSteps.map((step, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -385,8 +398,8 @@ function App() {
                 whileHover={{ scale: 1.05 }}
                 className="p-6 bg-white rounded-xl shadow-lg"
               >
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Step {index + 1}</h3>
-                <p className="text-gray-600">{step}</p>
+                <h3 className="text-xl font-semibold text-gray-900 mb-2">{step.title}</h3>
+                <p className="text-gray-600">{step.description}</p>
               </motion.div>
             ))}
           </div>
