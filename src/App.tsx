@@ -93,7 +93,7 @@ function App() {
       testimonial: "VirtualTech transformed our workflow with their innovative automation solutions. Their team is professional and dedicated."
     },
     {
-      clientName: "Mr.Gershon Ako (Internal Auditor SIC Lfe)",
+      clientName: "Mr.Gershon Ako (Internal Auditor SIC Life Insurance)",
       clientLogo: "https://drive.google.com/uc?export=view&id=1Ia4lR9MY2OwUgyffE4Q3PPa_Bd6YGz_W", 
       testimonial: "Their presentation design and data analysis services exceeded our expectations. Highly recommended!"
     },
