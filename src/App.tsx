@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ClipboardCheck, Mail, PieChart, Presentation, MessageSquare, FileSpreadsheet, Calendar, ArrowRight, Menu, X, ChevronUp, Gift } from 'lucide-react';
+import { ClipboardCheck, Mail, Presentation, MessageSquare, FileSpreadsheet, Calendar, ArrowRight, Menu, X, ChevronUp, Gift, Star } from 'lucide-react';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -85,22 +85,23 @@ function App() {
     }
   ];
 
-  // Sample testimonials from real clients/companies
+  // Testimonials with ratings (first testimonial: 5 stars, second: 4 stars)
   const testimonials = [
     {
       clientName: "Mr.Evans Asimah (CEO Of BR20)",
       clientLogo: "https://drive.google.com/uc?export=view&id=1cxUDHArMLi-SPOe0X3XiAoK_Ocglnhmc",
-      testimonial: "VirtualTech transformed our workflow with their innovative automation solutions. Their team is professional and dedicated."
+      testimonial: "VirtualTech transformed our workflow with their innovative automation solutions. Their team is professional and dedicated.",
+      rating: 5
     },
     {
       clientName: "Mr.Gershon Ako (Internal Auditor SIC Life Insurance)",
       clientLogo: "https://drive.google.com/uc?export=view&id=1Ia4lR9MY2OwUgyffE4Q3PPa_Bd6YGz_W", 
-      testimonial: "Their presentation design and data analysis services exceeded our expectations. Highly recommended!"
-    },
+      testimonial: "Their presentation design and data analysis services exceeded our expectations. Highly recommended!",
+      rating: 4
+    }
   ];
-  
 
-  // Duplicate testimonials to enable seamless scrolling
+  // Duplicate testimonials to enable seamless auto-scrolling
   const duplicatedTestimonials = [...testimonials, ...testimonials];
 
   const navItems = [
@@ -124,7 +125,6 @@ function App() {
             >
               VirtualTech
             </motion.h1>
-            
             {/* Desktop Navigation */}
             <div className="hidden md:flex space-x-8">
               {navItems.map(item => (
@@ -139,7 +139,6 @@ function App() {
                 </button>
               ))}
             </div>
-
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -149,7 +148,6 @@ function App() {
             </button>
           </div>
         </div>
-
         {/* Mobile Navigation */}
         <AnimatePresence>
           {isMenuOpen && (
@@ -207,7 +205,7 @@ function App() {
           <div className="bg-blue-800/50 px-6 py-2 rounded-full inline-block mb-6">
             <div className="flex items-center gap-2">
               <Gift className="w-5 h-5 text-yellow-400" />
-              <span className="text-yellow-400">Special Offer: Up to 20% off your first project!</span>
+              <span className="text-yellow-400">Special Offer: Up to 20% off on your first project!</span>
             </div>
           </div>
           <p className="text-xl md:text-2xl text-gray-600 mb-8">
@@ -274,7 +272,7 @@ function App() {
           <div className="overflow-hidden">
             <motion.div
               className="flex space-x-6"
-              // Animate horizontally continuously
+              // Auto-scroll horizontally continuously
               animate={{ x: -300 }}
               transition={{
                 duration: 15,
@@ -289,6 +287,13 @@ function App() {
                   className="min-w-[300px] flex-shrink-0 bg-gray-50 p-6 rounded-xl shadow-lg"
                 >
                   <p className="text-gray-700 mb-4">{t.testimonial}</p>
+                  {/* Render five stars with filled based on rating */}
+                  <div className="flex mb-4">
+                    {[...Array(5)].map((_, i) => {
+                      const starColor = i < t.rating ? "text-yellow-400" : "text-gray-300";
+                      return <Star key={i} className={`w-4 h-4 ${starColor}`} />;
+                    })}
+                  </div>
                   <div className="flex items-center">
                     <img src={t.clientLogo} alt={t.clientName} className="w-10 h-10 rounded-full mr-3" />
                     <span className="text-gray-900 font-semibold">{t.clientName}</span>
